@@ -51,7 +51,7 @@ div img {
 	/* background-color: bisque; */
 }
 
-.row-1::after,.row-2::after,.row-3::after
+.row::after
 {
 	content: "";
 	display: table;

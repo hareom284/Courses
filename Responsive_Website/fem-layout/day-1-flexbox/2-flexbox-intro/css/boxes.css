@@ -5,12 +5,27 @@ ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-	border: 1px dotted red;
+	border: 10px dotted red;
+	display: flex;
+	/* flex-direction: row; */
+	/* flex-wrap: wrap; */
+	/* height: 400px; */
+	flex-flow: row wrap;
+	justify-content:center;
+	
+
 }
 li {
-	border: 1px solid #999;
+	border: 10px solid #999;
 	margin: 0.5em;
 	padding: 0.5em;
+	
+}
+
+.flex2
+{   border: 4px dotted greenyellow;
+	order: 2;
+	flex: 0 1 20%;
 }
 
 
