@@ -1,0 +1,59 @@
+<!--Rowspan and colspan testing-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Row and Colspan Testing</title>
+</head>
+
+<body>
+    <table border="1" cellspacing="0" cellpadding='10'>
+        <thead>
+            <th>Items</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Sub Price(Kyats)</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Coconut Oil</td>
+                <td>400</td>
+                <td>2</td>
+                <td>800</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Cookies</td>
+                <td>12000</td>
+                <td>2</td>
+                <td>24000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td rowspan="2">Vegatables</td>
+                <td>4000</td>
+                <td>1</td>
+                <td>4000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>4000</td>
+                <td>1</td>
+                <td>4000</td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Totals</td>
+                <td>XXXXX kyats</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>
