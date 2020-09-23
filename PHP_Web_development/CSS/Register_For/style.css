@@ -1,0 +1,39 @@
+
+body{
+    margin-left: 100px;
+}
+h1{
+    text-align: center;
+    width: 80%;
+    background-color: red;
+ }
+input 
+{
+
+    width: 80%;
+}
+select
+{
+    width: 20%;
+}
+.rad
+{
+    width: 30px;
+}
+
+textarea
+{
+    width: 80%;
+    height: 10vh;
+}
+fieldset
+{
+    width: 80%;
+}
+footer
+{
+    background-color: cyan;
+    text-align: center;
+    width: 87%;
+
+}
