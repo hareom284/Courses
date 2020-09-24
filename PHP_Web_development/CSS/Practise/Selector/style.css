@@ -1,0 +1,77 @@
+a:link
+{
+    color: blue;
+}
+
+/*Afore clicking the link the effect will change*/
+
+a:hover
+{
+    color: brown;
+}
+
+/* If move over the mouse to the link */
+a:active
+{
+    background-color: aqua;
+}
+
+/*  */
+
+a:visited
+{
+    background-color: black;
+}
+
+div > a
+{
+    background-color: blueviolet;
+}
+/* Focus is used for focusing element */
+input[type="text"]:focus
+{
+    width: 100px;
+    transition: width .34s ease-in-out;
+}
+/*  */
+input[type="radio"]:checked+label
+{
+    background-color: chartreuse;
+    font-weight: bold;
+}
+input[type="text"]:disabled
+{
+    background-color: cyan;
+}
+
+input[type="text"]:enabled
+{
+    background-color: darkblue;
+}
+
+input[type="text"]:read-only
+{
+    background-color: burlywood;
+}
+/* Empty child is not working  */
+p:empty
+{
+    width: 100px;
+    height: 20px;
+    background-color:red;
+}
+
+li:first-child
+{
+    background-color: aqua;
+}
+
+li:last-child
+{
+    background-color: blueviolet;
+}
+
+li:nth-child(4)
+{
+    background-color: red;
+}
