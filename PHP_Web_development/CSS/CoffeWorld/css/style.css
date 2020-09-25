@@ -1,0 +1,116 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+}
+
+.logo
+{
+    clear: both;
+    margin-left:40%;
+}
+
+.logo img 
+{
+    float: left;
+}
+
+.logo h1
+{
+    padding: 40px;
+    font-family: Cookie;
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+
+/* nav section  */
+
+
+div.navbar
+{
+    background-color: #4E342E;
+    color: cadetblue;
+    height: 100px;
+    width: 100%;
+    /* background-color: brown; */
+}
+.nav-items
+{
+    margin-left: 40px;
+}
+div.navbar ul li
+{
+    float: left;
+    list-style-type: none;
+    padding: 40px;
+}
+div.navbar ul li:hover
+{  border-radius: 30px;
+    background-color: antiquewhite;
+}
+div.navbar ul li a
+{
+    /* background-color: aqua; */
+    text-decoration: none;
+}
+.active
+{
+    background-color:#4E3423;
+    border-radius: 30px;
+}
+.clear
+{
+    clear: both;
+}
+
+/* banner section  */
+
+.quote
+{
+    position: absolute;
+    margin-top: -14%;
+    margin-left: 300px;
+    background-color:rgba(255, 255,255, 0.5);
+    font-size: 40px;
+}
+/* what we offer section  */
+.what-offer
+{   margin-top: 100px;
+    text-align: center;
+}
+.hr 
+{   
+    width:590px ;
+    margin-left: 400px;
+}
+
+.what-offer p 
+{
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.icon-section
+{   margin-top: 100px;
+    margin-left: 170px;
+    display: grid;
+    grid-template-columns:300px 300px 300px;
+}
+.center
+{
+    padding-left: 100px;
+    font-size: 100px;
+}
+.icon-items 
+{
+    max-width: 100px;
+}
+.cente
+{
+    padding-left: 100px;
+}
+.p
+{
+    padding-left: 100px;
+}
