@@ -75,8 +75,8 @@ div.navbar ul li a
     font-size: 40px;
 }
 /* what we offer section  */
-.what-offer
-{   margin-top: 100px;
+.what-offer,.our-shop,.today-special
+{   margin-top: 80px;
     text-align: center;
 }
 .hr 
@@ -85,7 +85,7 @@ div.navbar ul li a
     margin-left: 400px;
 }
 
-.what-offer p 
+.what-offer p ,.today-special p
 {
     margin-left: 300px;
     margin-right: 300px;
@@ -113,4 +113,20 @@ div.navbar ul li a
 .p
 {
     padding-left: 100px;
+}
+.col-1
+{
+    display: grid;
+    height: 300px;
+   grid-template-columns: 110px 110px 110px 400px;
+   margin-left: 100px;
+}
+
+.col-2
+{
+    margin-top: -300px;
+    margin-right: 400px;
+    line-height: 40px;
+    width: 400px;
+    float: right;
 }
