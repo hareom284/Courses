@@ -1,0 +1,36 @@
+.bmi 
+{
+  width: 80%; 
+  height: 400px;
+
+  margin-left: 20%;
+}
+label
+{
+    margin-left: 40px;
+}
+
+label ,input[type="text"],button
+{
+    display: block;
+    line-height: 30px;
+}
+input
+{
+    width: 180px;
+}
+button
+{  
+    margin-top: 10px;
+    color:#fff;
+    width: 100px;
+    border-radius: 20px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,85,1) 35%, rgba(0,212,255,1) 100%); 
+    margin-left: 40px;
+}
+h1{
+    font-family: Dancing;
+    animation: ease-in-out;
+}
+
