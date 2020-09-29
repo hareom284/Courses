@@ -1,0 +1,2 @@
+1.html ==> Removing Element From the array
+

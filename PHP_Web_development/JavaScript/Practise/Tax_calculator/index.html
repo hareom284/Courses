@@ -5,10 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tax Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="row">
 
+        <div class="col-1">
+            <label>Monthly Salary (MMK)</label>
+            <input type="number" id="salary" placeholder="Enter Monthly Salary">
+        </div>
+        <div class="col-1">
+            <label>Number of months</label>
+            <input type="number" max="1" max="12" value="12" id="month">
+        </div>
+        <div class="col-1">
+            <input type="checkbox" id="mother"><label style="display: inline;">Mother</label>
+            <input type="checkbox" id="father"><label style="display: inline;">Father</label>
+            <input type="checkbox" id="spouse"><label style="display: inline;">Spouse</label>
+
+        </div>
+    </div>
+    <div class="row-2">
+        <div class="col-2">
+            <label for="">Children</label>
+            <select id="child">
+                <option value="0">No child</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        <div class="col-2">
+            <label>Other deductibles (Social Security Contributions, etc) in MMK</label>
+            <input type="text" id="personal">
+        </div>
+    </div>
+    <button onclick="Calculate()" type="button">Calculate</button>
+    <!-- first table for showing data for relief -->
+    <table>
+        <tbody id="firstTable"></tbody>
+    </table>
+    <div id="howitwork">
+
+    </div>
+    <script src="custom.js"></script>
 </body>
 
 </html>
