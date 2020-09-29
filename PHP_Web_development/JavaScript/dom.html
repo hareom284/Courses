@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+
+</head>
+
+<body>
+
+
+    <h1 class="h1">Hello World</h1>
+    <p class="query">This is Query</p>
+    <p id="myh1">Hello P tag <span>Span tag</span></p>
+    <img src="../JavaScript/Practise/BMI_Calculator/image.jpg" alt="">
+    <!-- <img src="../CSS/CoffeWorld/image/shop1.jpeg" alt=""> -->
+    <button onclick="testing()" type="button">Click</button>
+    <script>
+        function testing() {
+            let h1 = document.getElementsByClassName("h1");
+            console.log(h1[0].innerHTML);
+            //querySelctor is use for selecting only one element
+            document.querySelector(".query").innerHTML = "Query Selector is Working";
+            // if you are using .innerHTML is work all the tags inside the " "
+            // if u are using .innerHTML is work as test not effect on inside tags
+            document.getElementById('myh1').innerHTML = "Changed <i> helolo</i>";
+            //for effecting image tage we use like this
+
+            let image = document.getElementsByTagName('img');
+            console.log(image)
+            image[0].src = "https://www.allkpop.com/upload/2020/05/content/081721/1588972910-han-so-hwee.jpg";
+            image[0].style.width = "320px";
+            // alert(window.location.href); // current url
+            // window.location.assign('https://google.com');
+        }
+    </script>
+</body>
+
+</html>
