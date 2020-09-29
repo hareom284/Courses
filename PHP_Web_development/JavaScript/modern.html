@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Js</title>
+    <script>
+        let sum = 1 + 100000000000000;
+
+        console.log(sum);
+
+        let value = 100 ** 10;
+
+        sum > value ? console.log("Yes it is greater than") : console.log("No your was wrong", value);
+
+        ///sorting inn array 
+        let names = ["mg mg", "zaw zaw", "hare om"];
+        names.sort();
+        console.log(names);
+    </script>
+</head>
+
+<body>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <script>
+        var students = [{
+                name: "Zaw Zaw Win",
+                email: "zawzawwinucsl@gmail.com",
+                age: "19"
+            }, {
+                name: "Chandra Bhatt",
+                email: "khinepwintphyu011@gmail.com",
+                age: "18"
+            }, {
+
+                name: "Hla Min Naing",
+                email: "hlaminnaing@gmail.com",
+                age: "20"
+            }
+
+
+
+        ];
+        //declare html for adding table content
+        let html = "";
+        // checking age with filer() method  
+        let checkAge = students.filter(check => check.age > 18);
+        for (const student of checkAge) {
+            html += `<tr>
+                     <td>${student.name}</td>
+                     <td>${student.email}</td>
+                     <td>${student.age}</td>
+                     </tr>`;
+
+        }
+        tbody.innerHTML = html;
+    </script>
+</body>
+
+</html>
