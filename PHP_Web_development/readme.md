@@ -4,7 +4,7 @@
 
 # Learning Resource
 
-  (Essix)[https://www.tutorialrepublic.com/javascript-tutorial/javascript-es6-features.php]
+  (https://www.tutorialrepublic.com/javascript-tutorial/javascript-es6-features.php)[Essix]
 
 
  ClassCode : wtastda
