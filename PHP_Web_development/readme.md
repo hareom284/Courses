@@ -4,10 +4,15 @@
 
 # Learning Resource
 
-  (Essix)[https://www.tutorialrepublic.com/javascript-tutorial/javascript-es6-features.php]
+  [Essix](https://www.tutorialrepublic.com/javascript-tutorial/javascript-es6-features.php)
   
  # Icon usage website
-  [Icon)(https://ionicons.com/usage/)
+  [Icon](https://ionicons.com/usage/)
+  
+  
+  
+  #Login Form Design
+  [login](https://freefrontend.com/css-forms/)
   
   
 
