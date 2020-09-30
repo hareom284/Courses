@@ -4,7 +4,10 @@
 
 # Learning Resource
 
-  [https://www.tutorialrepublic.com/javascript-tutorial/javascript-es6-features.php](Essix)
+  (Essix)[https://www.tutorialrepublic.com/javascript-tutorial/javascript-es6-features.php]
+  
+ # Icon usage website
+  [Icon)(https://ionicons.com/usage/)
   
   
 
