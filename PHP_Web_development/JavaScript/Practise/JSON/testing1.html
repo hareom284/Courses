@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Testing</title>
+</head>
+
+<body>
+    <h1> This is json testing</h1>
+    <p>
+        Lonngitude <span id="long"></span>
+        <br> latitude <span id="lat"></span>
+
+    </p>
+    <script>
+        const api_url = "https://api.wheretheiss.at/v1/satellites/25544";
+        async function getData() {
+            const respond = await fetch(api_url);
+            const data = await respond.json();
+            const {
+                latitude,
+                longitude
+            } = data;
+
+            console.log(data.latitude);
+            console.log(data.longitude);
+            document.getElementById("long").innerHTML = data.longitude;
+            document.getElementById("lat").innerHTML = data.latitude;
+            setInterval(getData, 2000);
+
+        }
+        getData();
+    </script>
+
+</body>
+
+</html>
