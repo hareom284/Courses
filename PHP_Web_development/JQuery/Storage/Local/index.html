@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registering Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../../Test1/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+                // showData();
+                $("#btn").click(function() {
+                    // alert("work");
+                    //get value from the form 
+                    var name = $('#name').val();
+                    var age = $("#age").val();
+                    var address = $("#address").val();
+                    var gender = $("input[name='gender']:checked").val();
+                    // console.log(gender);
+                    // console.log(name);
+                    // console.log(age);
+                    // console.log(address);
+                    //declare object for storeing student information
+                    let students = {
+                        name: name,
+                        age: age,
+                        address: address,
+                        gender: gender
+                    }
+
+                    // console.log(students);
+
+                    //getStudent  from local storage that var is student
+                    var getStudentData = localStorage.getItem("student");
+                    var studentArray;
+                    // console.log("getStudentData" + getStudentData)
+                    if (getStudentData == null) {
+                        studentArray = [];
+                    } else {
+                        studentArray = JSON.parse(getStudentData);
+                        // console.log("Array", studentArray);
+                    }
+
+                    //get data in object form local storage  
+
+                    // console.log(studentArray);
+
+                    //push student data in studentArray
+                    studentArray.push(students);
+
+                    var studentToString = JSON.stringify(studentArray);
+                    // console.log("string" + studentToString);
+                    localStorage.setItem("student", studentToString);
+
+                    // console.log(studentArray);
+
+
+                    //set a key or variable in the local storage 
+
+                    // console.log(stringStudent);
+                    showData();
+
+                })
+            })
+            //get information from user via html
+
+        function showData() {
+            var getStudentData = localStorage.getItem("student");
+            // console.log("Student " + getStudentData);
+            if (getStudentData != null) {
+                var studentArr = JSON.parse(getStudentData);
+                // console.log(studentArr);
+                var html = "";
+                $.each(studentArr, function(i, v) {
+                    html += `<tr>
+                    <td>${v.name}</td>
+                    <td>${v.age}</td>
+                    <td>${v.address}</td>
+                    <td>${v.gender}</td>
+                    </tr>`
+
+                })
+                $("tbody").html(html);
+
+            }
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Student Registering Form</h2>
+    <label>Name</label>
+    <input type="text" id="name">
+    <br><br>
+    <label>Age</label>
+    <input type="text" id="age">
+    <br><br>
+    <label> Address</label>
+    <input type="text" id="address">
+    <br><br>
+    <label>Gender</label>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female
+    <button id="btn">Submit</button>
+    <table border="1" class="">
+        <thead>
+            <th>Name </th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Gender</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

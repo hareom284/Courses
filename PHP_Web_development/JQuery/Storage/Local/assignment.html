@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Data From Local Storage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            // getData();
+            //hide the before clicking the button
+            $(".hide").hide();
+            $("button").click(function() {
+                //get values form the form 
+                let name = $("#name").val();
+                // console.log(name);
+                let email = $("#email").val();
+                // console.log(email);
+                let address = $("#address").val();
+                // console.log(address);
+                let age = $("#age").val();
+                // console.log(age);
+                let gender = $("input[name='gender']:checked").val();
+                // console.log(gender);
+
+                //put above data to a object 
+                let studentData = {
+                        name: name,
+                        email: email,
+                        address: address,
+                        age: age,
+                        gender: gender
+                    }
+                    // console.log(studentData);
+                    //get data form local strage by using key value
+                let getData = localStorage.getItem("students");
+                //declare a variable for storing the value if getData is empty
+                let studentArray;
+                if (getData == null) {
+                    studentArray = [];
+                } else {
+                    studentArray = JSON.parse(getData);
+                    // console.log(studentArray);
+                }
+                // console.log(studentArray);
+                //push the data to student array
+                studentArray.push(studentData);
+                //convert object to string by using jso.strity()
+                var stringStudentData = JSON.stringify(studentArray);
+                // console.log(stringStudentData);
+                //storage that data into the local storage 
+                localStorage.setItem("students", stringStudentData);
+
+                getStudent();
+
+            })
+        })
+
+        function getStudent() { //get data from local storage
+            let getstudentData = localStorage.getItem("students");
+            // console.log(getstudentData);
+            //convert the data to object
+            let student = JSON.parse(getstudentData);
+            // console.log(student);
+            let html = "";
+            $.each(student, function(key, value) {
+                html += `
+                <tr>
+                <td>${value.name}</td>
+                <td>${value.email}</td>
+                <td>${value.address}</td>
+                <td>${value.age}</td>
+                <td>${value.gender}</td>
+                <tr>
+                
+                `
+            })
+            $("tbody").html(html);
+            $(".hide").show();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="form-style-4" action="" method="post">
+        <label for="field1">
+            <span>Enter Your Name</span><input type="text" name="field1" id="name"/>
+        </label>
+        <label for="field2">
+            <span>Email Your Email</span><input type="email" name="field2" id="email" />
+        </label>
+        <label for="field3">
+            <span>Enter Your Address</span><input type="text" name="field3" id="address"/>
+        </label>
+        <label for="field4">
+            <span>Age</span><textarea name="field4" id="age"></textarea>
+        </label>
+        <label for="">
+            <span>Gender</span> 
+            <input type="radio" value="male" name="gender">Male
+            <input type="radio" name="gender" value="female">Female
+        </label>
+        <label>
+            <span> </span><button>Submit</button>
+        </label>
+    </div>
+    <br><br><br><br>
+    <table border="1" class="hide">
+        <thead>
+            <th>Name </th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Age</th>
+            <th>gender</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+
+</html>
