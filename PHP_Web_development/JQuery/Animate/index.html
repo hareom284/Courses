@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate</title>
+    <script src="../Test1/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $("img").hide(2000, function() {
+                    alert("work");
+
+                }).show(1000).attr("width", 100).attr("height", 200)
+            })
+        })
+    </script>
+</head>
+
+<body>
+
+    <img src="../../CSS/CoffeWorld/image/photo1.jpeg" width="200px" height="140px">
+    <button>Animate</button>
+</body>
+
+</html>

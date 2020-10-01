@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking Pass or Fail</title>
+    <script src="../Test1/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                // alert("click");
+                var myanmar = $("#myanmar").val();
+                // console.log(myanmar);
+                var english = $("#english").val();
+                // console.log(english);
+                var mathematic = $("#math").val();
+                var html = "";
+                // console.log(mathematic);
+                //checking for pass or fail the exam
+                //checking invalid input
+                if ((myanmar < 0 || myanmar > 100) || (english < 0 || english > 100) || (mathematic < 0 || mathematic > 100)) {
+                    alert("Please Fill valid input")
+                }
+                //for valid input only accept 
+                else {
+                    //checking if fail the exam
+                    if (myanmar <= 39 || english <= 39 || mathematic <= 39) {
+                        alert("You fail the exam");
+                    } //checking if got distincation
+                    else if (myanmar > 80) {
+                        html += ("You got distinction in myanmar :" + myanmar + "<br>");
+                        if (english > 80) {
+                            html += ("You got distinction in english :" + english + "<br>");
+                            if (mathematic > 80) {
+                                html += ("You got distinction in mathematic :" + mathematic);
+                            }
+
+
+                        }
+
+                    } //checking if got distinction in english
+                    else if (english > 80) {
+
+                        html += ("You got distinction in english :" + english + "<br>");
+                        if (myanmar > 80) {
+                            html += ("You got distinction in myanmar :" + myanmar + "<br>");
+                            if (mathematic > 80) {
+                                html += ("You got distinction in mathematic:" + mathematic);
+                            }
+
+
+                        }
+                    }
+                    //checking if got distiniction in mathematics
+                    else if (mathematic > 80) {
+
+                        html += ("You got distinction in mathematic :" + mathematic + "<br>");
+                        if (english > 80) {
+                            html += ("You got distinction in english :" + english + "<br>");
+                            if (myanmar > 80) {
+                                html += ("You got distinction in myanmar :" + myanmar);
+                            }
+
+
+                        }
+                    }
+
+                }
+
+                $('#dis').html(html);
+
+
+            })
+        })
+    </script>
+</head>
+
+<body>
+
+    <h1 style="color: red;">Please Enter Your Mark to check pass or fail</h1>
+    <label> Myanmar:</label>
+    <input type="text" id="myanmar">
+    <br><br>
+    <label>English:::::</label>
+    <input type="text" id="english">
+    <br><br>
+    <label>Mathematic</label>
+    <input type="text" id="math">
+    <br> <br>
+    <button type="button" id="btn">Check</button>
+    <h1 id="dis">
+    </h1>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password</title>
+    <script src="../Test1/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                // alert("Work");
+                var email = $("#email").val();
+                var password = $("#password").val();
+                var cPassword = $("#conform").val();
+                // console.log(email);
+                console.log(password);
+                console.log(cPassword);
+                if (password != cPassword) {
+                    alert("Password does not match");
+                } else {
+                    $(".login").html("Your log in as" + email);
+                }
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="login">
+        <label>Email</label>
+        <input type="email" id="email">
+        <br><br>
+        <label>Password</label>
+        <input type="text" id="password">
+        <br><br>
+        <label>Conform Password</label>
+        <input type="text" id="conform">
+        <br><br>
+        <button>Login </button>
+    </div>
+
+</body>
+
+</html>
