@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(71, 158, 158);
+}
+
+.container {
+    /* center in the browser  */
+    margin: 100px auto 0px auto;
+    display: block;
+    height: 440px;
+    width: 300px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.header {
+    background-color: aqua;
+    color: white;
+    height: 200px;
+}
+
+.month {
+    padding-top: 40px;
+    text-align: center;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.year,
+.day {
+    text-align: center;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    position: relative;
+    /* display: inline-block; */
+    float: left;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    zoom: 1.2;
+    *display: inline;
+}
+
+
+/* loading in effet in csss */
+
+#bar {
+    margin-top: 20px;
+    height: 30px;
+    width: 0%;
+    background-color: blue;
+    background-image: url(https://bloodstonescifi.files.wordpress.com/2013/09/banner-600-x-120.jpg);
+    background-size: cover;
+    /*you can change it to auto to see change*/
+    box-shadow: 1px 1px 3px silver;
+}
+
+h3 {
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 1px 3px aqua;
+}
+
+h4 {
+    color: white;
+    text-shadow: 1px 1px 2px aqua;
+}
+
+#content {
+    display: none;
+}
+
+#main {
+    display: block;
+    /*used js to change it to none so that it disappears on loading*/
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    text-shadow: 2px 1px 3px yellow;
+}
+
+
+/* end of loading effect  */

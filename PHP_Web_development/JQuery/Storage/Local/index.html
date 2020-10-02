@@ -10,6 +10,7 @@
     <script>
         $(document).ready(function() {
                 // showData();
+                $(".studentEdit").hide();
                 $("#btn").click(function() {
                     // alert("work");
                     //get value from the form 
@@ -73,15 +74,90 @@
                 // console.log(studentArr);
                 var html = "";
                 $.each(studentArr, function(i, v) {
-                    html += `<tr>
+                        html += `<tr>
                     <td>${v.name}</td>
                     <td>${v.age}</td>
                     <td>${v.address}</td>
                     <td>${v.gender}</td>
+                    <td><button class="edit" data-id="${i}">Edit</button>
+                    <button class="delete" data-id="${i}">Delete</button>
+                    </td>
                     </tr>`
 
-                })
+                    })
+                    // console.log(html);
                 $("tbody").html(html);
+                // for edit button 
+                $(".edit").click(function() {
+                    $(".studentReg").hide(3000);
+                    $(".studentEdit").show(4000);
+
+
+                    // alert("work");
+                    // get id fron edit button 
+                    let id = $(this).data("id");
+                    // alert(id);
+                    // get value form localstorage 
+                    var studentData = localStorage.getItem("student");
+                    // alert(studentArray);
+                    // console.log(typeof studentArray);
+                    var studentA = JSON.parse(studentData);
+                    // console.log(typeof Data);
+                    // alert(Data);
+                    // console.log(studentA);
+                    let EditData = studentA[id];
+                    // console.log(EditData);
+                    let name = EditData.name;
+                    let age = EditData.age;
+                    let address = EditData.address;
+                    let gender = EditData.gender;
+                    console.log(gender);
+                    // console.log(gender);
+                    $("#uid").val(id);
+                    $("#uname").val(name);
+                    //  console.log()
+                    $("#uage").val(age);
+                    $("#uaddress").val(address);
+                    //checking for radio button if check or not
+                    //You have to know the different between .prop() and .attr()
+                    //Here reference link https://stackoverflow.com/questions/5665915/how-to-check-a-radio-button-with-jquery
+                    if (gender == 'male') {
+
+                        $("#umale").prop('checked', true);
+                    } else {
+                        $('#ufemale').prop('checked', true);
+                    }
+
+
+
+
+                })
+
+                $("#update").click(function() {
+                    // alert("work");
+                    var id = $("#uid").val();
+                    console.log(id);
+                    var name = $("#uname").val();
+                    console.log(name);
+                    var age = $("#uage").val();
+                    var address = $("#uaddress").val();
+                    var gender = $("input[name='gender']:checked").val();
+                    console.log(gender);
+                    var student = {
+                        name: name,
+                        age: age,
+                        address: address,
+                        gender: gender
+                    }
+                    var studentList = localStorage.getItem("student");
+                    var Obj = JSON.parse(studentList);
+                    Obj[id] = student;
+                    localStorage.setItem("student", JSON.stringify(Obj));
+                    showData();
+                })
+                $()
+
+
 
             }
 
@@ -91,26 +167,47 @@
 </head>
 
 <body>
-    <h2>Student Registering Form</h2>
-    <label>Name</label>
-    <input type="text" id="name">
-    <br><br>
-    <label>Age</label>
-    <input type="text" id="age">
-    <br><br>
-    <label> Address</label>
-    <input type="text" id="address">
-    <br><br>
-    <label>Gender</label>
-    <input type="radio" name="gender" value="male"> Male
-    <input type="radio" name="gender" value="female"> Female
-    <button id="btn">Submit</button>
+    <div class="studentReg">
+        <h2>Student Registering Form</h2>
+        <label>Name</label>
+        <input type="text" id="name">
+        <br><br>
+        <label>Age</label>
+        <input type="text" id="age">
+        <br><br>
+        <label> Address</label>
+        <input type="text" id="address">
+        <br><br>
+        <label>Gender</label>
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
+        <button id="btn">Submit</button>
+    </div>
+    <div class="studentEdit">
+        <h2>Student Edit Form</h2>
+        <input type="hidden" id="uid">
+        <label>Name</label>
+        <input type="text" id="uname">
+        <br><br>
+        <label>Age</label>
+        <input type="text" id="uage">
+        <br><br>
+        <label> Address</label>
+        <input type="text" id="uaddress">
+        <br><br>
+        <label>Gender</label>
+        <input type="radio" name="gender" id="umale" value="male"> Male
+        <input type="radio" name="gender" id="ufemale" value="female"> Female
+        <button id="update">Update</button>
+    </div>
+
     <table border="1" class="">
         <thead>
             <th>Name </th>
             <th>Age</th>
             <th>Address</th>
             <th>Gender</th>
+            <th>Edit</th>
         </thead>
         <tbody>
 
