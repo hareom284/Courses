@@ -14,6 +14,9 @@
   #Login Form Design
   [login](https://freefrontend.com/css-forms/)
   
+  #To check radio button in jquery 
+  [Reference](https://stackoverflow.com/questions/5665915/how-to-check-a-radio-button-with-jquery)
+  
   
 
 
