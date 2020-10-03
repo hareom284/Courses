@@ -120,6 +120,7 @@ function getDat() {
     }
     var nOfDay = nOfDays(month, year);
     // console.log(nOfDay);
+    
     var shit = 0;
     var generate = "";
     // console.log(day);
