@@ -22,11 +22,11 @@ function Calculate() {
     //parent and wife checking
     var parentRelief = 0;
     //checking for parentrelifef
-    if (father == true || mother == true) {
-        parentRelief = 1000000;
-    } else if (father == true && mother == true) {
+    if (father == true && mother == true) {
         parentRelief = 2000000;
-        alert("work");
+    } else if (father == true || mother == true) {
+        parentRelief = 1000000;
+        // alert("work");
     } else {
         parentRelief = 0;
     }
