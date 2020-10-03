@@ -123,87 +123,12 @@ function getDat() {
     var shit = 0;
     var generate = "";
     // console.log(day);
-    if (weekday == 0) {
-        if (day == 1) {
-            generate += `<ul>
-           <li>${++shit}</li>
-           <li> ${++shit}</li>
-           <li> ${++shit}</li>
-           <li> ${++shit}</li>
-           <li> ${++shit}</li>
-           <li>${++shit}</li>
-           <li>${++shit}</li>
-           </ul>`;
-        } else if (day > 1) {
+    //7 cloumns * six and six row  = 42 
+    for (let int = 0; int < 41; int++) {
 
-        }
-    } else if (weekday == 1) {
-        generate += `<ul>
-           <li></li>
-           <li> ${++shit}</li>
-           <li> ${++shit}</li>
-           <li> ${++shit}</li>
-           <li> ${++shit}</li>
-           <li>${++shit}</li>
-           <li>${++shit}</li>
-           </ul>`;
-    } else if (weekday == 2) {
-        generate += `<ul>
-           <li></li>
-           <li> </li>
-           <li>${++shit} </li>
-           <li> ${++shit}</li>
-           <li> ${++shit}</li>
-           <li>${++shit}</li>
-           <li>${++shit}</li>
-           </ul>`;
-    } else if (weekday == 3) {
-        generate += `<ul>
-           <li></li>
-           <li> </li>
-           <li> </li>
-           <li> ${++shit}</li>
-           <li> ${++shit}</li>
-           <li>${++shit}</li>
-           <li>${++shit}</li>
-           </ul>`;
-    } else if (weekday == 4) {
-        generate += `<ul>
-           <li></li>
-           <li> </li>
-           <li> </li>
-           <li> </li>
-           <li> ${++shit}</li>
-           <li>${++shit}</li>
-           <li>${++shit}</li>
-           </ul>`;
-    } else if (weekday == 5) {
-        generate += `<ul>
-           <li></li>
-           <li> </li>
-           <li> </li>
-           <li> </li>
-           <li> </li>
-           <li>${++shit}</li>
-           <li>${++shit}</li>
-           </ul>`;
-    } else {
-        generate += `<ul>
-           <li></li>
-           <li> </li>
-           <li> </li>
-           <li> </li>
-           <li> </li>
-           <li>${++shit}</li>
-           <li>${++shit}</li>
-           </ul>`;
+
     }
-    console.log(generate);
+
     document.getElementById("generate").innerHTML = generate;
 
-}
-for (let i = 0; i < 7; i++) {
-    for (let j = 0; j < 7; j++) {
-        console.log('okay');
-    }
 }
