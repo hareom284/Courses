@@ -11,7 +11,7 @@ body {
     /* center in the browser  */
     margin: 100px auto 0px auto;
     display: block;
-    height: 440px;
+    height: 490px;
     width: 300px;
     border-radius: 20px;
     background-color: white;
@@ -56,15 +56,33 @@ li {
 
 /* loading in effet in csss */
 
-#bar {
-    margin-top: 20px;
-    height: 30px;
-    width: 0%;
-    background-color: blue;
-    background-image: url(https://bloodstonescifi.files.wordpress.com/2013/09/banner-600-x-120.jpg);
-    background-size: cover;
-    /*you can change it to auto to see change*/
-    box-shadow: 1px 1px 3px silver;
+#loading {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 1s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 h3 {
@@ -83,14 +101,9 @@ h4 {
 }
 
 #main {
+    margin: 240px auto 0px 570px;
     display: block;
     /*used js to change it to none so that it disappears on loading*/
-}
-
-a {
-    text-decoration: none;
-    color: white;
-    text-shadow: 2px 1px 3px yellow;
 }
 
 

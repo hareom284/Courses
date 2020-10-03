@@ -1,74 +1,24 @@
 // loading in javascript 
 window.onload = function one() {
 
-    var bar = document.getElementById("bar"); //got the bar
+    var loading = document.getElementById("loading"); //got the bar
     var width = 0; //got the width
     var lag = setInterval(load, 100); //set the var lag to providee intetval
     var main = document.getElementById("main"); //to be shown during loading
     var content = document.getElementById("content"); //to be shown after loading
     var h3 = document.getElementById("para");
-    var h4 = document.getElementById("hatodo");
 
     function load() {
         if (width >= 100) { //after 100% loading events
-            clearInterval(lag);
+            clearInterval(loading);
             main.style.display = 'none';
             content.style.display = 'block';
 
         } else { //during loading events
             width++;
-            bar.style.width = width + '%';
+            // bar.style.width = width + '%';
             h3.innerHTML = width + '% loaded';
 
-            // i have made quite a use of switch here
-            switch (width) {
-
-                case 1:
-                    h4.innerHTML = "initiating....";
-                    break;
-
-                case 10:
-                    h4.innerHTML = "getting titles....";
-                    break;
-
-                case 30:
-                    h4.innerHTML = "titles ready.<br/>recieving files....";
-                    break;
-
-                case 50:
-                    h4.innerHTML = "titles ready<br/>files ready.<br/>recieving data...."
-                    break;
-
-                case 70:
-                    h4.innerHTML = "titles ready<br/>files ready.<br/>data ready.</br>generating document"
-                    break;
-
-                case 75:
-                    h4.innerHTML = "titles ready<br/>files ready.<br/>data ready.</br>generating document...."
-                    break;
-
-                case 80:
-                    h4.innerHTML = "titles ready<br/>files ready.<br/>data ready.</br>generating document..."
-                    break;
-
-                case 85:
-                    h4.innerHTML = "titles ready<br/>files ready.<br/>data ready.</br>generating document.."
-                    break;
-
-                case 90:
-                    h4.innerHTML = "titles ready<br/>files ready.<br/>data ready.</br>generating document."
-                    break;
-
-                case 95:
-                    h4.innerHTML = "titles ready<br/>files ready.<br/>data ready.</br>generating document.."
-                    break;
-
-                case 98:
-                    h4.innerHTML = "titles ready<br/>files ready.<br/>data ready.</br>generating document...."
-                    break;
-                    //you can mess arond with this removing the break statements
-
-            }
         }
     }
     getDat();
@@ -118,17 +68,39 @@ function getDat() {
     function nOfDays(month, year) {
         return new Date(year, month, 0).getDate();
     }
-    var nOfDay = nOfDays(month, year);
+    dat = new Date(year, month, 01);
+    var first_day = dat.getDay()
+    console.log("first_day", first_day);
+    var last_day = nOfDays(month, year);
     // console.log(nOfDay);
-    
-    var shit = 0;
+
+    var shit = 1;
     var generate = "";
     // console.log(day);
     //7 cloumns * six and six row  = 42 
-    for (let int = 0; int < 41; int++) {
+
+    // generate date from this algorithms 
+    // https://www.plus2net.com/javascript_tutorial/date-project-calendar1.php
+    for (let int = 0; int < 42; int++) {
+
+        //after a week
+        if ((int % 7) == 0) {
+            generate += `</ul><ul>`
+        }
+        if ((int >= first_day) && (shit <= last_day + 1)) {
+            if (shit == day) {
+                generate += `<li style="background-color:aqua;border-radius:10px;">${shit++}</li>`;
+            } else {
+                generate += `<li> ${shit++} </li>`;
+            }
+        } else {
+            generate += `<li>-</li>`;
+        }
 
 
     }
+    generate += `</ul>`
+    console.log(generate);
 
     document.getElementById("generate").innerHTML = generate;
 
