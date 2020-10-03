@@ -91,17 +91,12 @@ h3 {
     text-shadow: 2px 1px 3px aqua;
 }
 
-h4 {
-    color: white;
-    text-shadow: 1px 1px 2px aqua;
-}
-
 #content {
     display: none;
 }
 
 #main {
-    margin: 240px auto 0px 570px;
+    margin: 20% auto 0px 40%;
     display: block;
     /*used js to change it to none so that it disappears on loading*/
 }
