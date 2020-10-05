@@ -87,6 +87,7 @@
                     })
                     // console.log(html);
                 $("tbody").html(html);
+                }
                 // for edit button 
                 $(".edit").click(function() {
                     $(".studentReg").hide(3000);
@@ -106,12 +107,13 @@
                     // alert(Data);
                     // console.log(studentA);
                     let EditData = studentA[id];
-                    // console.log(EditData);
+                    console.log(EditData);
                     let name = EditData.name;
+                    console.log(name);
                     let age = EditData.age;
                     let address = EditData.address;
                     let gender = EditData.gender;
-                    console.log(gender);
+                    // console.log(gender);
                     // console.log(gender);
                     $("#uid").val(id);
                     $("#uname").val(name);
@@ -155,14 +157,32 @@
                     localStorage.setItem("student", JSON.stringify(Obj));
                     showData();
                 })
-                $()
+                //for delectiong data from the table
+
+                $(".delete").click(function()
+                {
+                    // alert("work");
+                    let id = $(this).data("id");
+                    // alert(id);
+                    let Students = localStorage.getItem("student");
+                    // console.log(Students);
+                    let Student = JSON.parse(Students);
+                    console.log(Student);
+                    Student.splice(id,1);
+                    // console.log(Student);
+                    let Tostring = JSON.stringify(Student);
+                    localStorage.setItem("student",Tostring);
+
+                    //do not forget to recall to show table data function
+                    showData();
+                })
 
 
 
             }
 
 
-        }
+        
     </script>
 </head>
 

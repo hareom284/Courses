@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoping List</title>
+    <style>
+        img {
+            width: 200px;
+            height: 180px;
+        }
+
+        h4,
+        p {
+            padding-left: 40px;
+        }
+
+        h1 {
+            padding-left:30%;
+        }
+
+        .card {
+            float: left;
+            padding: 20px;
+        }
+        button
+        {
+            margin-left: 30px;
+            width: 140px;
+            height: 40px;
+            background-color: rgb(136, 190, 190);
+            border-radius: 20px;
+            outline:none;
+
+        }
+        button:hover
+        {
+            background-color: aqua;
+            width: 130px;
+        }
+
+        .clear {
+            clear: right;
+        }
+        .my-card
+        {
+            display: inline-block;
+
+            /* margin-right: 20%; */
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            position: relative;
+            float: left;
+            width: 80px;
+            height: 35px;
+            text-align: center;
+            line-height: 35px;
+            zoom: 1.2;
+            *display: inline;
+        }
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function()
+        {   
+        
+            $(".add-tocard").click(function()
+            {
+                // alert("work");
+                var Shopping = localStorage.getItem("shop");
+
+                var ShoppingArray;
+                if(Shopping==null)
+                {
+                    ShoppingArray = [];
+                }
+                else
+                {
+                    
+                }
+
+                
+            })
+        });
+    
+    </script>
+</head>
+
+<body>
+    <div class="my-shop">
+        <h1>My Shop</h1>
+        <div class="card">
+            <img src="image1.jpg" alt="bugger">
+            <div class="container">
+                <h4 class="item-name"><b>Cake </b></h4>
+                <p>Price : 4000 kyats</p>
+                <button type="button" class="add-tocard" data-id="1">Add to card</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="image2.jpg" alt="cake">
+            <div class="container">
+                <h4 class="item-name"><b>Cookies</b></h4>
+                <p>Price : 2000kyats</p>
+                <button type="button" class="add-tocard" data-id="2">Add to Card</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="imag3.jpg" alt="nothing">
+            <div class="container">
+                <h4 class="item-name"><b>Cholocate</b></h4>
+                <p>Price : 2000kyats</p>
+                <button type="button" class="add-tocard" data-id="3">Add to card </button>
+            </div>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+    <div class="my-card">
+        <h1>My card <span ><img src="icon.svg" width="-100px" height="10px"><sup>3</sup></span></h1>
+        <ul>
+            <li>No</li>
+            <li>Name</li>
+            <li>Photo</li>
+            <li>Qty</li>
+            <li>price</li>
+            <li>subtotal</li>
+            <li>Edit</li>
+        </ul>
+        <div id="generate">
+
+        </div>
+    </div>
+</body>
+
+</html>

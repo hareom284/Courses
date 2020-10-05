@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="form.css">
     <script src="jquery.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // getData();
             //hide the before clicking the button
-            $(".hide").hide();
-            $("button").click(function() {
+
+            $(".edit").hide();
+            $("button").click(function () {
                 //get values form the form 
                 let name = $("#name").val();
                 // console.log(name);
@@ -28,14 +29,14 @@
 
                 //put above data to a object 
                 let studentData = {
-                        name: name,
-                        email: email,
-                        address: address,
-                        age: age,
-                        gender: gender
-                    }
-                    // console.log(studentData);
-                    //get data form local strage by using key value
+                    name: name,
+                    email: email,
+                    address: address,
+                    age: age,
+                    gender: gender
+                }
+                // console.log(studentData);
+                //get data form local strage by using key value
                 let getData = localStorage.getItem("students");
                 //declare a variable for storing the value if getData is empty
                 let studentArray;
@@ -66,7 +67,7 @@
             let student = JSON.parse(getstudentData);
             // console.log(student);
             let html = "";
-            $.each(student, function(key, value) {
+            $.each(student, function (key, value) {
                 html += `
                 <tr>
                 <td>${value.name}</td>
@@ -74,37 +75,108 @@
                 <td>${value.address}</td>
                 <td>${value.age}</td>
                 <td>${value.gender}</td>
+                <td><button class="edit" data-id="${key}">Edit</button>
+                    <button class="delete" data-id="${key}">Delete</button>
+                    </td>
                 <tr>
                 
                 `
             })
             $("tbody").html(html);
             $(".hide").show();
+
+            $(".edit").click(function () {
+                $(".register").hide(1000);
+                $(".edit").show(3000);
+                let id = $(this).data("id");
+                let getData = localStorage.getItem("students");
+                getDat = JSON.parse(getData);
+                // console.log(getData);
+                let EditData = getDat[id];
+                let uid = id;
+                console.log(uid);
+                console.log(EditData);
+                let name = EditData.name;
+                let email = EditData.email;
+                let age = EditData.age;
+                let address = EditData.address;
+                let gender = EditData.gender;
+                $("#uid").val(uid);
+                $("#ename").val(name);
+                $("#eemail").val(email);
+                $("#eaddress").val(address);
+                $("#uage").val(age);
+                if (gender == "male") {
+                    $("#emale").prop('checked', true)
+                }
+                else {
+                    $("#efemale").prop('checked', true);
+                }
+            
+
+            })
+            $("#update").click(function()
+            {
+                
+                let id = $("#uid").val();
+                let name = $("#uname").val();
+                console.log(id);
+                
+            })
+
         }
+
+
+
     </script>
 </head>
 
 <body>
-    <div class="form-style-4" action="" method="post">
+    <div class="form-style-4 register">
+        <h1>Student Register Form</h1>
         <label for="field1">
-            <span>Enter Your Name</span><input type="text" name="field1" id="name"/>
+            <span>Enter Your Name</span><input type="text" name="field1" id="name" />
         </label>
         <label for="field2">
             <span>Email Your Email</span><input type="email" name="field2" id="email" />
         </label>
         <label for="field3">
-            <span>Enter Your Address</span><input type="text" name="field3" id="address"/>
+            <span>Enter Your Address</span><input type="text" name="field3" id="address" />
         </label>
         <label for="field4">
             <span>Age</span><textarea name="field4" id="age"></textarea>
         </label>
         <label for="">
-            <span>Gender</span> 
+            <span>Gender</span>
             <input type="radio" value="male" name="gender">Male
             <input type="radio" name="gender" value="female">Female
         </label>
         <label>
             <span> </span><button>Submit</button>
+        </label>
+    </div>
+    <div class="form-style-4 edit">
+        <h1>Student Edit Form</h1>
+        <input type="hidden" id="uid">
+        <label for="field1">
+            <span>Enter Your Name</span><input type="text" name="field1" id="ename" />
+        </label>
+        <label for="field2">
+            <span>Email Your Email</span><input type="email" name="field2" id="eemail" />
+        </label>
+        <label for="field3">
+            <span>Enter Your Address</span><input type="text" name="field3" id="eaddress" />
+        </label>
+        <label for="field4">
+            <span>Age</span><textarea name="field4" id="uage"></textarea>
+        </label>
+        <label for="">
+            <span>Gender</span>
+            <input type="radio" name="gender" value="male" id="emale">Male
+            <input type="radio" name="gender" value="female" id="efemale">Female
+        </label>
+        <label>
+            <span> </span><button id="update">Update</button>
         </label>
     </div>
     <br><br><br><br>
@@ -115,6 +187,7 @@
             <th>Address</th>
             <th>Age</th>
             <th>gender</th>
+            <th>Edit</th>
         </thead>
         <tbody>
 

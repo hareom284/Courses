@@ -16,7 +16,6 @@ window.onload = function one() {
 
         } else { //during loading events
             width++;
-            // bar.style.width = width + '%';
             h3.innerHTML = width + '% loaded';
 
         }
@@ -100,7 +99,7 @@ function getDat() {
 
     }
     generate += `</ul>`
-    console.log(generate);
+    // console.log(generate);
 
     document.getElementById("generate").innerHTML = generate;
 

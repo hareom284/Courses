@@ -43,7 +43,6 @@ ul {
 
 li {
     position: relative;
-    /* display: inline-block; */
     float: left;
     width: 35px;
     height: 35px;
