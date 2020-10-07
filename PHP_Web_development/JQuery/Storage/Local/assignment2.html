@@ -17,25 +17,25 @@
         }
 
         h1 {
-            padding-left:30%;
+            padding-left: 30%;
         }
 
         .card {
             float: left;
             padding: 20px;
         }
-        button
-        {
+
+        button {
             margin-left: 30px;
             width: 140px;
             height: 40px;
             background-color: rgb(136, 190, 190);
             border-radius: 20px;
-            outline:none;
+            outline: none;
 
         }
-        button:hover
-        {
+
+        button:hover {
             background-color: aqua;
             width: 130px;
         }
@@ -43,8 +43,8 @@
         .clear {
             clear: right;
         }
-        .my-card
-        {
+
+        .my-card {
             display: inline-block;
 
             /* margin-right: 20%; */
@@ -64,31 +64,117 @@
             zoom: 1.2;
             *display: inline;
         }
+        #generate img 
+        {
+           width: 30px;
+           height: 30px;
+        }
+        .btn
+        {
+            width: 70px;
+            height: 20px;
+            background-color: white;
+            border: none;
+        }
+        .btn:hover
+        {
+            width: 20px;
+        }
     </style>
     <script src="jquery.js"></script>
     <script>
-        $(document).ready(function()
-        {   
-        
-            $(".add-tocard").click(function()
+        $("document").ready(function () {
+            $(".add-tocard").click(function () {  //get id from each element 
+                let id = $(this).data("id");
+                //    console.log(id);
+                //get name from button from each element
+                let name = $(this).data("name");
+                //    console.log(name);
+                let price = $(this).data("price");
+                //    console.log(price);
+                let image = $(this).data("image");
+                let items =
+                {
+                    id: id,
+                    name: name,
+                    price: price,
+                    image: image,
+                    qty :1
+                }
+                //    console.log(image);
+                let Shop_items = localStorage.getItem("shops");
+                let Shop_Array;
+                if (Shop_items == null) {
+                    Shop_Array = [];
+                }
+                else{
+                    Shop_Array = JSON.parse(Shop_items);
+
+                    // console.log(Shop_Array);
+                }
+
+                // console.log(shop_items);
+                let check = false;
+                $.each(Shop_Array,function(i,v)
+                {
+                   if(v.id==id)
+                   {
+                       v.qty++;
+                       check=true;
+                   }
+                })
+                if(!check)
+                {
+                    Shop_Array.push(items);
+                }
+                var shop_string = JSON.stringify(Shop_Array);
+                localStorage.setItem("shops",shop_string);
+                // console.log(shop_string);
+                
+                showData();
+
+            })
+           
+
+        })
+
+        function showData()
+        {
+            let getItems = localStorage.getItem("shops");
+            getItems = JSON.parse(getItems);
+            var html ="";
+            var total = 0;
+            $.each(getItems,function(i,v)
             {
-                // alert("work");
-                var Shopping = localStorage.getItem("shop");
-
-                var ShoppingArray;
-                if(Shopping==null)
-                {
-                    ShoppingArray = [];
-                }
-                else
-                {
-                    
-                }
-
+                let subtotal = v.qty * v.price;
+                total +=subtotal;
+                html+=`    <ul>
+                           <li>${i}</li>
+                           <li>${v.name}</li>
+                           <li><img src="${v.image}"></li>
+                           <li>${v.qty}</li>
+                           <li>${v.price}</li>
+                           <li>${subtotal}</li>
+                           <li><button data-delete="${i}" class="btn"><img src="https://img.icons8.com/color/48/000000/delete-forever.png"/></button></li>
+                           </ul>`
+            })
+            // console.log(id);
+            $("#generate").html(html);
+            $(".btn").click(function()
+            {
+                let getItems = localStorage.getItem("shops");
+                // console.log(getItems);
+                getItems = JSON.parse(getItems);
+                let id = $(this).data("delete");
+                // console.log(id);
+                getItems.splice(id,1);
+                getItems = JSON.stringify(getItems);
+                localStorage.setItem("shops",getItems);
+                showData();
                 
             })
-        });
-    
+        }
+
     </script>
 </head>
 
@@ -100,7 +186,8 @@
             <div class="container">
                 <h4 class="item-name"><b>Cake </b></h4>
                 <p>Price : 4000 kyats</p>
-                <button type="button" class="add-tocard" data-id="1">Add to card</button>
+                <button type="button" class="add-tocard" data-id="1" data-image="image1.jpg" data-name="Cake"
+                    data-price="4000">Add to card</button>
             </div>
         </div>
         <div class="card">
@@ -108,7 +195,8 @@
             <div class="container">
                 <h4 class="item-name"><b>Cookies</b></h4>
                 <p>Price : 2000kyats</p>
-                <button type="button" class="add-tocard" data-id="2">Add to Card</button>
+                <button type="button" class="add-tocard" data-id="2" data-image="image2.jpg" data-name="Cokkies"
+                    data-price="2000">Add to Card</button>
             </div>
         </div>
         <div class="card">
@@ -116,14 +204,15 @@
             <div class="container">
                 <h4 class="item-name"><b>Cholocate</b></h4>
                 <p>Price : 2000kyats</p>
-                <button type="button" class="add-tocard" data-id="3">Add to card </button>
+                <button type="button" class="add-tocard" data-id="3" data-image="imag3.jpg" data-name="Cholocate"
+                    data-price="2000">Add to card </button>
             </div>
         </div>
 
     </div>
     <div class="clear"></div>
     <div class="my-card">
-        <h1>My card <span ><img src="icon.svg" width="-100px" height="10px"><sup>3</sup></span></h1>
+        <h1>My card <span><img src="icon.svg" width="-100px" height="10px"><sup>3</sup></span></h1>
         <ul>
             <li>No</li>
             <li>Name</li>
