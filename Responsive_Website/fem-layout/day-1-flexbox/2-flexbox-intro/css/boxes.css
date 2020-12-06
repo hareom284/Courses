@@ -11,7 +11,7 @@ ul {
 	/* flex-wrap: wrap; */
 	/* height: 400px; */
 	flex-flow: row wrap;
-	justify-content:center;
+	/* justify-content:center; */
 	
 
 }
@@ -21,12 +21,12 @@ li {
 	padding: 0.5em;
 	
 }
-
-.flex2
-{   border: 4px dotted greenyellow;
-	order: 2;
-	flex: 0 1 20%;
+ul:last-child
+{
+	order:-1;
 }
+
+
 
 
 
