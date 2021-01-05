@@ -31,7 +31,7 @@ div img {
 }
 .col-1
 {
-	background-color: beige;
+	background-color: rgb(12, 114, 29);
 }
 .col-2
 {
@@ -70,26 +70,31 @@ div img {
 
 /* Mobile Landscape Screen Sizes */
 @media only screen and (min-width: 480px)  {
-	.col-1
-	{   float: left;
-		margin-right: 20px;
-		width: 44%;
+	[class*='col-'] {
+		margin-right: 0;
+		min-height: 1px;
+		float: left;
 	}
+	.col-1
+	{   
+		width: 40%;
+	
+	}
+	
 	.col-2
 	{
-		float: left;
-		margin-left: 10px;
+		
 		width:48%;
 	}
 	.col-3
-	{   margin-left: 4%;
+	{   
 		width: 88%;
 	}
 	
 	.col-4
 	{  
-	   margin-left: 4%;
-       width: 88%;
+	   
+       width: 90%;
 	}
 
 }
@@ -105,7 +110,7 @@ div img {
 {
 	float: left;
 	margin-left: 20px;
-	width: 47%;
+	width: 44%;
 	background-color: cadetblue;
 }
 .col-3
@@ -116,6 +121,6 @@ div img {
 	}
 	.change
 	{
-		width: 70%;
+		width: 68%;
 	}
 }
