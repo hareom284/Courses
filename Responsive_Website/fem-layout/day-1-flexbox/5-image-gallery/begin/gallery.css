@@ -13,8 +13,30 @@ ul {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+	display: flex;
+	flex-flow: row wrap;
 }
-@media (min-width: 550px) {
+li
+{  
+	margin:2%;
+	flex:1 20%;
+	outline: 3px solid grey;
 }
-@media (min-width: 850px) { 
+img
+{
+	width: 100%;
+}
+@media (max-width: 768px) {
+li
+{
+	flex: 1 80%;
+}
+}
+@media (min-width:768px) and (max-width: 1200px) { 
+	
+	li
+	{
+		flex:1 30%;
+	}
+
 }
